@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>游戏积分版</title>
+  <style>
+    .player {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .player-avatar {
+      font-size: 48px;
+      margin-right: 10px;
+    }
+    
+    .score {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    
+    .buttons {
+      margin-top: 20px;
+    }
+    
+    button {
+      margin-right: 10px;
+    }
+    
+    .eliminated {
+      font-size: 24px;
+      color: gray;
+      font-weight: bold;
+    }
+    
+    .winner {
+      font-size: 48px;
+      color: purple;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="player">
+    <div class="player-avatar">👨‍🚀</div>
+    <div class="player-info">
+      <div class="score">星星: <span id="starsA">⭐️</span></div>
+      <div class="score">血量: <span id="healthA">❤️❤️❤️❤️❤️</span></div>
+      <button onclick="addStar('A')">增加星星</button>
+      <button onclick="subtractHealth('A')">减少血量</button>
+      <button onclick="addHealth('A')">增加血量</button>
+      <div class="eliminated" id="eliminatedA" style="display: none;">被淘汰</div>
+    </div>
+  </div>
+  
+  <div class="player">
+    <div class="player-avatar">👩‍🔬</div>
+    <div class="player-info">
+      <div class="score">星星: <span id="starsB">⭐️</span></div>
+      <div class="score">血量: <span id="healthB">❤️❤️❤️❤️❤️</span></div>
+      <button onclick="addStar('B')">增加星星</button>
+      <button onclick="subtractHealth('B')">减少血量</button>
+      <button onclick="addHealth('B')">增加血量</button>
+      <div class="eliminated" id="eliminatedB" style="display: none;">被淘汰</div>
+    </div>
+  </div>
+  
+  <div class="player">
+    <div class="player-avatar">👨‍🎨</div>
+    <div class="player-info">
+      <div class="score">星星: <span id="starsC">⭐️</span></div>
+      <div class="score">血量: <span id="healthC">❤️❤️❤️❤️❤️</span></div>
+      <button onclick="addStar('C')">增加星星</button>
+      <button onclick="subtractHealth('C')">减少血量</button>
+      <button onclick="addHealth('C')">增加血量</button>
+      <div class="eliminated" id="eliminatedC" style="display: none;">被淘汰</div>
+    </div>
+  </div>
+  
+  <div class="player">
+    <div class="player-avatar">👩‍🍳</div>
+    <div class="player-info">
+      <div class="score">星星: <span id="starsD">⭐️</span></div>
+      <div class="score">血量: <span id="healthD">❤️❤️❤️❤️❤️</span></div>
+      <button onclick="addStar('D')">增加星星</button>
+      <button onclick="subtractHealth('D')">减少血量</button>
+      <button onclick="addHealth('D')">增加血量</button>
+      <div class="eliminated" id="eliminatedD" style="display: none;">被淘汰</div>
+    </div>
+  </div>
+  
+  <div class="player">
+    <div class="player-avatar">🧑‍🚀</div>
+    <div class="player信息不全，我会继续完成代码：
+
+```html
+  <div class="player">
+    <div class="player-avatar">🧑‍🚀</div>
+    <div class="player-info">
+      <div class="score">星星: <span id="starsE">⭐️</span></div>
+      <div class="score">血量: <span id="healthE">❤️❤️❤️❤️❤️</span></div>
+      <button onclick="addStar('E')">增加星星</button>
+      <button onclick="subtractHealth('E')">减少血量</button>
+      <button onclick="addHealth('E')">增加血量</button>
+      <div class="eliminated" id="eliminatedE" style="display: none;">被淘汰</div>
+    </div>
+  </div>
+
+  <div class="winner" id="winner" style="display: none;">胜利者: <span id="winnerName"></span></div>
+
+  <script>
+    var players = {
+      A: { stars: 1, health: 5 },
+      B: { stars: 1, health: 5 },
+      C: { stars: 1, health: 5 },
+      D: { stars: 1, health: 5 },
+      E: { stars: 1, health: 5 }
+    };
+
+    function updatePlayerInfo(player) {
+      var playerData = players[player];
+      var starsElement = document.getElementById('stars' + player);
+      var healthElement = document.getElementById('health' + player);
+      var eliminatedElement = document.getElementById('eliminated' + player);
+
+      starsElement.textContent = getStarIcons(playerData.stars);
+      healthElement.textContent = getHeartIcons(playerData.health);
+
+      if (playerData.health === 0) {
+        eliminatedElement.style.display = 'block';
+        starsElement.style.color = 'gray';
+        healthElement.style.color = 'gray';
+      } else {
+        eliminatedElement.style.display = 'none';
+        starsElement.style.color = 'black';
+        healthElement.style.color = 'black';
+      }
+
+      if (playerData.stars === 10) {
+        showWinner(player);
+      }
+    }
+
+    function addStar(player) {
+      var playerData = players[player];
+      if (playerData.stars < 10 && playerData.health > 0) {
+        playerData.stars++;
+        updatePlayerInfo(player);
+      }
+    }
+
+    function subtractHealth(player) {
+      var playerData = players[player];
+      if (playerData.health > 0) {
+        playerData.health--;
+        updatePlayerInfo(player);
+      }
+    }
+
+    function addHealth(player) {
+      var playerData = players[player];
+      if (playerData.health < 5 && playerData.health > 0) {
+        playerData.health++;
+        updatePlayerInfo(player);
+      }
+    }
+
+    function getStarIcons(count) {
+      var stars = '';
+      for (var i = 0; i < count; i++) {
+        stars += '⭐️';
+      }
+      return stars;
+    }
+
+    function getHeartIcons(count) {
+      var hearts = '';
+      for (var i = 0; i < count; i++) {
+        hearts += '❤️';
+      }
+      return hearts;
+    }
+
+    function showWinner(player) {
+      document.getElementById('winner').style.display = 'block';
+      document.getElementById('winnerName').textContent = player;
+    }
+  </script>
+</body>
+</html>
