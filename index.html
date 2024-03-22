@@ -1,185 +1,236 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>游戏积分版</title>
-  <style>
-    .player {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    
-    .player-avatar {
-      font-size: 48px;
-      margin-right: 10px;
-    }
-    
-    .score {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-    
-    .buttons {
-      margin-top: 20px;
-    }
-    
-    button {
-      margin-right: 10px;
-    }
-    
-    .eliminated {
-      font-size: 24px;
-      color: gray;
-      font-weight: bold;
-    }
-    
-    .winner {
-      font-size: 48px;
-      color: purple;
-      font-weight: bold;
-    }
-  </style>
+  <title>The Journey of Herbal - Scoreboard</title>
+  
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f2;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    color: #4CAF50;
+    text-align: center;
+  }
+
+  .player {
+    display: flex;
+    align-items: center;
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 600px;
+  }
+  img{
+    width: 150px;
+  }
+  
+  .player-avatar {
+    font-size: 48px;
+    margin-right: 20px;
+  }
+  
+  .score {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .buttons {
+    display: flex;
+    margin-top: 20px;
+
+  }
+  .buttonA {
+    background-color: #4CAF50;
+  }
+  .buttonB {
+    background-color: #FF6659;
+  }
+  .buttonC {
+    background-color: #FFB300;
+  }
+  .buttonD {
+    background-color: #03A9F4;
+  }
+
+  button {
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .eliminated {
+    font-size: 24px;
+    color: #f44336;
+    font-weight: bold;
+  }
+  
+  .winner {
+    font-size: 32px;
+    color: #4CAF50;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+</style>
+
 </head>
 <body>
+  <h1>The Journey of Herbal - Scoreboard</h1>
   <div class="player">
-    <div class="player-avatar">👨‍🚀</div>
+    <div class="player-avatar">
+      <img src="img/img1.jpg" alt="玩家头像A">
+    </div>
     <div class="player-info">
-      <div class="score">星星: <span id="starsA">⭐️</span></div>
-      <div class="score">血量: <span id="healthA">❤️❤️❤️❤️❤️</span></div>
-      <button onclick="addStar('A')">增加星星</button>
-      <button onclick="subtractHealth('A')">减少血量</button>
-      <button onclick="addHealth('A')">增加血量</button>
-      <div class="eliminated" id="eliminatedA" style="display: none;">被淘汰</div>
+      <div class="score">Stars: <span id="starsA">⭐️</span></div>
+      <div class="score">Health: <span id="healthA">❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</span></div>
+      <div class="buttons">
+        <button class="buttonA" onclick="addStar('A')">Add Star</button>
+        <button class="buttonA" onclick="subtractHealth('A')">Subtract Health</button>
+        <button class="buttonA" onclick="addHealth('A')">Add Health</button>
+      </div>
+      <div class="eliminated" id="eliminatedA" style="display: none;">Eliminated</div>
     </div>
   </div>
-  
   <div class="player">
-    <div class="player-avatar">👩‍🔬</div>
+    <div class="player-avatar">
+      <img src="img/img2.jpg" alt="玩家头像B">
+    </div>
     <div class="player-info">
-      <div class="score">星星: <span id="starsB">⭐️</span></div>
-      <div class="score">血量: <span id="healthB">❤️❤️❤️❤️❤️</span></div>
-      <button onclick="addStar('B')">增加星星</button>
-      <button onclick="subtractHealth('B')">减少血量</button>
-      <button onclick="addHealth('B')">增加血量</button>
-      <div class="eliminated" id="eliminatedB" style="display: none;">被淘汰</div>
+      <div class="score">Stars: <span id="starsB">⭐️</span></div>
+      <div class="score">Health: <span id="healthB">❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</span></div>
+      <div class="buttons">
+        <button class="buttonB" onclick="addStar('B')">Add Star</button>
+        <button class="buttonB" onclick="subtractHealth('B')">Subtract Health</button>
+        <button class="buttonB" onclick="addHealth('B')">Add Health</button>
+      </div>
+      <div class="eliminated" id="eliminatedB" style="display: none;">Eliminated</div>
     </div>
   </div>
-  
   <div class="player">
-    <div class="player-avatar">👨‍🎨</div>
+    <div class="player-avatar">
+      <img src="img/img3.jpg" alt="玩家头像C">
+    </div>
     <div class="player-info">
-      <div class="score">星星: <span id="starsC">⭐️</span></div>
-      <div class="score">血量: <span id="healthC">❤️❤️❤️❤️❤️</span></div>
-      <button onclick="addStar('C')">增加星星</button>
-      <button onclick="subtractHealth('C')">减少血量</button>
-      <button onclick="addHealth('C')">增加血量</button>
-      <div class="eliminated" id="eliminatedC" style="display: none;">被淘汰</div>
+      <div class="score">Stars: <span id="starsC">⭐️</span></div>
+      <div class="score">Health: <span id="healthC">❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</span></div>
+      <div class="buttons">
+        <button class="buttonC" onclick="addStar('C')">Add Star</button>
+        <button class="buttonC" onclick="subtractHealth('C')">Subtract Health</button>
+        <button class="buttonC" onclick="addHealth('C')">Add Health</button>
+      </div>
+      <div class="eliminated" id="eliminatedC" style="display: none;">Eliminated</div>
     </div>
   </div>
-  
   <div class="player">
-    <div class="player-avatar">👩‍🍳</div>
+    <div class="player-avatar">
+      <img src="img/img4.jpg" alt="玩家头像D">
+    </div>
     <div class="player-info">
-      <div class="score">星星: <span id="starsD">⭐️</span></div>
-      <div class="score">血量: <span id="healthD">❤️❤️❤️❤️❤️</span></div>
-      <button onclick="addStar('D')">增加星星</button>
-      <button onclick="subtractHealth('D')">减少血量</button>
-      <button onclick="addHealth('D')">增加血量</button>
-      <div class="eliminated" id="eliminatedD" style="display: none;">被淘汰</div>
+      <div class="score">Stars: <span id="starsD">⭐️</span></div>
+      <div class="score">Health: <span id="healthD">❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</span></div>
+      <div class="buttons">
+        <button class="buttonD" onclick="addStar('D')">Add Star</button>
+        <button class="buttonD" onclick="subtractHealth('D')">Subtract Health</button>
+        <button class="buttonD" onclick="addHealth('D')">Add Health</button>
+      </div>
+      <div class="eliminated" id="eliminatedD" style="display: none;">Eliminated</div>
     </div>
   </div>
-  
-  <div class="player">
-    <div class="player-avatar">🧑‍🚀</div>
-    <div class="player-info">
-      <div class="score">星星: <span id="starsE">⭐️</span></div>
-      <div class="score">血量: <span id="healthE">❤️❤️❤️❤️❤️</span></div>
-      <button onclick="addStar('E')">增加星星</button>
-      <button onclick="subtractHealth('E')">减少血量</button>
-      <button onclick="addHealth('E')">增加血量</button>
-      <div class="eliminated" id="eliminatedE" style="display: none;">被淘汰</div>
-    </div>
-  </div>
-
-  <div class="winner" id="winner" style="display: none;">胜利者: <span id="winnerName"></span></div>
+  <div class="winner" id="winner" style="display: none;">Winner: <span id="winnerName"></span></div>
 
   <script>
-    var players = {
-      A: { stars: 1, health: 5 },
-      B: { stars: 1, health: 5 },
-      C: { stars: 1, health: 5 },
-      D: { stars: 1, health: 5 },
-      E: { stars: 1, health: 5 }
-    };
+var players = {
+    A: { stars: 1, health: 10, eliminated: false },
+    B: { stars: 1, health: 10, eliminated: false },
+    C: { stars: 1, health: 10, eliminated: false },
+    D: { stars: 1, health: 10, eliminated: false }
+  };
 
-    function updatePlayerInfo(player) {
-      var playerData = players[player];
-      var starsElement = document.getElementById('stars' + player);
-      var healthElement = document.getElementById('health' + player);
-      var eliminatedElement = document.getElementById('eliminated' + player);
+  var gameOver = false;
 
-      starsElement.textContent = getStarIcons(playerData.stars);
-      healthElement.textContent = getHeartIcons(playerData.health);
+  function updatePlayerInfo(player) {
+    if (gameOver) return;
+    
+    var playerData = players[player];
+    var starsElement = document.getElementById('stars' + player);
+    var healthElement = document.getElementById('health' + player);
+    var eliminatedElement = document.getElementById('eliminated' + player);
 
-      if (playerData.health === 0) {
-        eliminatedElement.style.display = 'block';
-        starsElement.style.color = 'gray';
-        healthElement.style.color = 'gray';
-      } else {
-        eliminatedElement.style.display = 'none';
-        starsElement.style.color = 'black';
-        healthElement.style.color = 'black';
-      }
+    starsElement.textContent = '⭐️'.repeat(playerData.stars);
+    healthElement.textContent = '❤️'.repeat(playerData.health);
 
-      if (playerData.stars === 10) {
-        showWinner(player);
-      }
+    if (playerData.health <= 0) {
+      playerData.eliminated = true;
+      eliminatedElement.style.display = 'block';
+      starsElement.parentElement.style.color = 'gray';
+      healthElement.parentElement.style.color = 'gray';
+    } else {
+      eliminatedElement.style.display = 'none';
+      starsElement.parentElement.style.color = 'black';
+      healthElement.parentElement.style.color = 'black';
     }
 
-    function addStar(player) {
-      var playerData = players[player];
-      if (playerData.stars < 10 && playerData.health > 0) {
-        playerData.stars++;
-        updatePlayerInfo(player);
-      }
+    if (playerData.stars === 8) {
+      showWinner(player);
     }
+  }
 
-    function subtractHealth(player) {
-      var playerData = players[player];
-      if (playerData.health > 0) {
-        playerData.health--;
-        updatePlayerInfo(player);
-      }
-    }
+  function addStar(player) {
+    if (gameOver || players[player].eliminated) return;
 
-    function addHealth(player) {
-      var playerData = players[player];
-      if (playerData.health < 5 && playerData.health > 0) {
-        playerData.health++;
-        updatePlayerInfo(player);
-      }
-    }
+    players[player].stars++;
+    updatePlayerInfo(player);
+  }
 
-    function getStarIcons(count) {
-      var stars = '';
-      for (var i = 0; i < count; i++) {
-        stars += '⭐️';
-      }
-      return stars;
-    }
+  function subtractHealth(player) {
+    if (gameOver || players[player].eliminated) return;
 
-    function getHeartIcons(count) {
-      var hearts = '';
-      for (var i = 0; i < count; i++) {
-        hearts += '❤️';
-      }
-      return hearts;
-    }
+    players[player].health--;
+    updatePlayerInfo(player);
+  }
 
-    function showWinner(player) {
-      document.getElementById('winner').style.display = 'block';
-      document.getElementById('winnerName').textContent = player;
-    }
+  function addHealth(player) {
+    if (gameOver || players[player].eliminated || players[player].health >= 10) return;
+
+    players[player].health++;
+    updatePlayerInfo(player);
+  }
+
+  function showWinner(player) {
+    document.getElementById('winner').style.display = 'block';
+    document.getElementById('winnerName').textContent = player;
+    gameOver = true;
+  }
+
+  // Initialize the player information on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    Object.keys(players).forEach(player => {
+      updatePlayerInfo(player);
+    });
+  });
   </script>
 </body>
 </html>
