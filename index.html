@@ -51,19 +51,55 @@
     margin-top: 20px;
 
   }
-  .buttonA {
-    background-color: #4CAF50;
+  .buttonsA{
+    display: flex;
+    margin-top: 20px;
+    button {
+      background-color: #4CAF50;
+      display: flex;
+      margin-top: 20px;
+    }
+    button:hover {
+    background-color: #8BC34A;
   }
-  .buttonB {
-    background-color: #FF6659;
   }
-  .buttonC {
-    background-color: #FFB300;
+  .buttonsB{
+    display: flex;
+    margin-top: 20px;
+    button {
+      background-color: #FF6659;
+      display: flex;
+      margin-top: 20px;
+    }
+    button:hover {
+    background-color: #FF8A80;
   }
-  .buttonD {
-    background-color: #03A9F4;
   }
-
+  .buttonsC{
+    display: flex;
+    margin-top: 20px;
+    button {
+      background-color: #FFB300;
+      display: flex;
+      margin-top: 20px;
+    }
+    button:hover {
+    background-color: #FFD54F;
+  }
+  }
+  .buttonsD{
+    display: flex;
+    margin-top: 20px;
+    button {
+      background-color: #03A9F4;
+      display: flex;
+      margin-top: 20px;
+    }
+    button:hover {
+    background-color: #4FC3F7;
+  }
+  }
+  
   button {
     color: white;
     border: none;
@@ -78,9 +114,7 @@
     transition: background-color 0.3s ease;
   }
 
-  button:hover {
-    background-color: #45a049;
-  }
+
   
   .eliminated {
     font-size: 24px;
@@ -90,7 +124,7 @@
   
   .winner {
     font-size: 32px;
-    color: #4CAF50;
+    color: #FFD700;
     font-weight: bold;
     margin: 20px 0;
   }
@@ -99,6 +133,8 @@
 </head>
 <body>
   <h1>The Journey of Herbal - Scoreboard</h1>
+  <div class="winner" id="winner" style="display: none;">Winner: <span id="winnerName" style="padding-right: 10px;"></span>🏆</div>
+
   <div class="player">
     <div class="player-avatar">
       <img src="img/img1.jpg" alt="玩家头像A">
@@ -106,7 +142,7 @@
     <div class="player-info">
       <div class="score">Stars: <span id="starsA">⭐️</span></div>
       <div class="score">Health: <span id="healthA">❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</span></div>
-      <div class="buttons">
+      <div class="buttonsA">
         <button class="buttonA" onclick="addStar('A')">Add Star</button>
         <button class="buttonA" onclick="subtractHealth('A')">Subtract Health</button>
         <button class="buttonA" onclick="addHealth('A')">Add Health</button>
@@ -121,7 +157,7 @@
     <div class="player-info">
       <div class="score">Stars: <span id="starsB">⭐️</span></div>
       <div class="score">Health: <span id="healthB">❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</span></div>
-      <div class="buttons">
+      <div class="buttonsB">
         <button class="buttonB" onclick="addStar('B')">Add Star</button>
         <button class="buttonB" onclick="subtractHealth('B')">Subtract Health</button>
         <button class="buttonB" onclick="addHealth('B')">Add Health</button>
@@ -136,7 +172,7 @@
     <div class="player-info">
       <div class="score">Stars: <span id="starsC">⭐️</span></div>
       <div class="score">Health: <span id="healthC">❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</span></div>
-      <div class="buttons">
+      <div class="buttonsC">
         <button class="buttonC" onclick="addStar('C')">Add Star</button>
         <button class="buttonC" onclick="subtractHealth('C')">Subtract Health</button>
         <button class="buttonC" onclick="addHealth('C')">Add Health</button>
@@ -151,7 +187,7 @@
     <div class="player-info">
       <div class="score">Stars: <span id="starsD">⭐️</span></div>
       <div class="score">Health: <span id="healthD">❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</span></div>
-      <div class="buttons">
+      <div class="buttonsD">
         <button class="buttonD" onclick="addStar('D')">Add Star</button>
         <button class="buttonD" onclick="subtractHealth('D')">Subtract Health</button>
         <button class="buttonD" onclick="addHealth('D')">Add Health</button>
@@ -159,14 +195,13 @@
       <div class="eliminated" id="eliminatedD" style="display: none;">Eliminated</div>
     </div>
   </div>
-  <div class="winner" id="winner" style="display: none;">Winner: <span id="winnerName"></span></div>
 
   <script>
 var players = {
-    A: { stars: 1, health: 10, eliminated: false },
-    B: { stars: 1, health: 10, eliminated: false },
-    C: { stars: 1, health: 10, eliminated: false },
-    D: { stars: 1, health: 10, eliminated: false }
+    A: { stars: 0, health: 10, eliminated: false },
+    B: { stars: 0, health: 10, eliminated: false },
+    C: { stars: 0, health: 10, eliminated: false },
+    D: { stars: 0, health: 10, eliminated: false }
   };
 
   var gameOver = false;
